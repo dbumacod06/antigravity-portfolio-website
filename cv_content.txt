@@ -1,0 +1,32 @@
+Dhoby Schon Fitz Bumacod
+Work Experience
+Software Developer, Globe Group
+Feb 2023 - April 2025
+Engineered an end-to-end workforce management ecosystem by architecting secure REST APIs using Typescript and MongoDB schemas, which streamlined field operations from request assignment to HR tracking while ensuring high data integrity through custom-built validation and RBAC middlewares.
+Orchestrated a GitOps-driven RPA solution using Python and GitLab CI/CD that automated manual web interactions, reducing operational overhead by 91% (15+ hours/month) through containerized pipelines that handle end-to-end data validation, file orchestration, and real-time logging.
+Spearheaded the development of an AI chat platform using Azure App Service and Functions, integrating customized GPT-3.5/4 models with LangChain-driven data chunking to process and query complex, multi-format document repositories.
+Automated data lifecycle management by developing a Python-based AWS Lambda function that performs daily audits on DynamoDB records, identifying and validating entries from the trailing 15 days to trigger automated notifications or account blocks.
+Metro Manila, Philippines • +639777817912 • dsfbumacod06@gmail.com
+Software Engineer, Arch Global Services
+April 2025 - Present
+Architected and migrated API telemetry to Azure Application Insights, replacing legacy database-logging to achieve operational improvements:
+System Performance: Eliminated redundant database I/O calls, reducing API latency and simplifying the core logging middleware.
+Operational Efficiency: Removed the need for manual database schema management and log rotation, significantly lowering infrastructure maintenance.
+Data Observability: Integrated logs with custom KQL-based (Kusto) dashboards, providing the team with real-time visibility into application health and user behavior.
+Streamlined multi-project data workflows by centralizing ingestion points, using Snowflake’s event-driven architecture to automate downstream transformations and decouple heavy processing from the primary application codebase.
+Education
+Mapua University
+Bachelor of Science, Major in Computer Engineering
+June 2021
+Technical Skills
+Languages: Python, SQL, Javascript, Nodejs, Java
+Frameworks/Libraries: ExpressJS, ReactJS, Springboot
+Databases/Data Warehouses: PostgresSQL, AzureSQL, MongoDB, DynamoDB, Snowflake
+Devops/Cloud: AWS, Azure, GCP, Terraform, GitlabCI, Github Actions, Docker, Kubernetes, Helm
+Technical Cadet, Globe Group
+June 2022 - Feb 2023
+Completed a 6-month intensive cloud and AI residency, mastering competitive programming and cloud architecture on AWS, with a specialized focus on deploying machine learning workflows using Amazon SageMaker.
+Optimized machine learning model maintenance by engineering an automated multi-part validation pipeline that reduced daily manual effort by 2 hours, processing external web data and model predictions in under 60 seconds.
+Computer Operator, Change Healthcare
+October  2020 - June 2022
+Maintained high operational standards by executing and documenting daily procedural audits, ensuring 100% adherence to compliance protocols and zero-gap service continuity for all system tasks.
