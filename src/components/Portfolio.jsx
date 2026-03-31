@@ -172,11 +172,11 @@ const Portfolio = () => {
             Available for specialized engineering projects and strategic technical partnerships.
           </p>
 
-          <a href="mailto:dsfbumacod06@gmail.com" className="btn-primary" style={{ marginBottom: 'var(--space-16)' }}>Get in Touch</a>
+          <a href="mailto:hello@dhobyschon.com" className="btn-primary" style={{ marginBottom: 'var(--space-16)' }}>Get in Touch</a>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginBottom: '2rem' }}>
             <span className="label-text text-cyan">+63 123 456 7890</span>
-            <a href="mailto:dsfbumacod06@gmail.com" className="label-text text-gold">Email</a>
+            <a href="mailto:hello@dhobyschon.com" className="label-text text-gold">Email</a>
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', fontSize: '0.875rem' }}>
