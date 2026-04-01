@@ -39,7 +39,7 @@ const Portfolio = () => {
             </p>
             <div style={{ display: 'flex', gap: '1rem' }}>
               <a href="#contact" className="btn-primary">Connect <span className="gem" style={{ margin: '0 0 0 0.5rem', width: '6px', height: '6px', backgroundColor: 'var(--background)' }}></span></a>
-              <a href="#projects" className="btn-secondary">View the Arsenal</a>
+              <a href="#stack" className="btn-secondary">View the Arsenal</a>
             </div>
           </div>
           <div style={{ flex: '1 1 350px', display: 'flex', justifyContent: 'center' }}>
