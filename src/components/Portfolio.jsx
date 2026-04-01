@@ -17,7 +17,7 @@ const Portfolio = () => {
     <div className="surface-base">
       {/* Navigation */}
       <nav className="container">
-        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '2rem', padding: '2rem 0' }}>
+        <div className="nav-container">
           <a href="#experience" className="label-text text-cyan nav-link">Experience</a>
           <a href="#stack" className="label-text text-cyan nav-link">Expertise</a>
           <a href="#projects" className="label-text text-cyan nav-link">Work</a>
@@ -31,14 +31,14 @@ const Portfolio = () => {
         <div style={{ position: 'relative', zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap-reverse', gap: '4rem' }}>
           <div style={{ flex: '1 1 500px' }}>
             <div className="label-text text-gold" style={{ marginBottom: '1rem' }}>Dhoby Schon Fitz Bumacod</div>
-            <h1 className="display-text" style={{ fontSize: '4.5rem', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '2rem', maxWidth: '800px' }}>
+            <h1 className="display-text" style={{ marginBottom: '2rem', maxWidth: '800px' }}>
               Software, Data, <span className="text-cyan">& AI Engineering</span>.
             </h1>
-            <p style={{ fontSize: '1.25rem', maxWidth: '600px', marginBottom: '3rem' }}>
-              Leveraging high-precision engineering to architect resilient solutions that transform complex challenges into scalable business impact. Based in Metro Manila, Philippines.
+            <p className="header-paragraph" style={{ fontSize: '1.25rem', maxWidth: '600px', marginBottom: '3rem' }}>
+              Leveraging high-precision engineering to architect resilient solutions that transform complex challenges into scalable business impact. Based in <span className="text-gold" style={{ borderBottom: '1px solid rgba(240, 191, 92, 0.2)', paddingBottom: '2px' }}>Metro Manila, Philippines</span>.
             </p>
             <div style={{ display: 'flex', gap: '1rem' }}>
-              <a href="#contact" className="btn-primary">Connect <span className="gem" style={{ margin: '0 0 0 0.5rem', width: '6px', height: '6px', backgroundColor: 'var(--background)' }}></span></a>
+              <a href="#contact" className="btn-primary">Reach Out <span className="gem" style={{ margin: '0 0 0 0.5rem', width: '6px', height: '6px', backgroundColor: 'var(--background)' }}></span></a>
               <a href="https://www.linkedin.com/in/dhoby-bumacod-2aa8411b3/" target="_blank" rel="noopener noreferrer" className="btn-secondary">Connect on LinkedIn</a>
             </div>
           </div>
