@@ -141,6 +141,14 @@ const Portfolio = () => {
                   ))}
                 </div>
               </div>
+              <a href="https://github.com/dhobyschon/simple-kafka-system" target="_blank" rel="noopener noreferrer" className="card-ghost-btn">
+                <span>View Code</span>
+                <span className="gem" style={{ margin: 0, width: '4px', height: '4px' }}></span>
+              </a>
+              <a href="https://github.com/dhobyschon/simple-kafka-system" target="_blank" rel="noopener noreferrer" className="card-side-blade">
+                <span>VIEW REPOSITORY</span>
+                <div className="blade-icon">→</div>
+              </a>
             </div>
 
             <div className="glass-card ambient-shadow interactive-card-gold" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1.5rem' }}>
@@ -157,6 +165,14 @@ const Portfolio = () => {
                   ))}
                 </div>
               </div>
+              <a href="https://github.com/dhobyschon/dhoby-ai-assistant" target="_blank" rel="noopener noreferrer" className="card-ghost-btn card-ghost-btn-gold">
+                <span>View Code</span>
+                <span className="gem gem-gold" style={{ margin: 0, width: '4px', height: '4px' }}></span>
+              </a>
+              <a href="https://github.com/dhobyschon/dhoby-ai-assistant" target="_blank" rel="noopener noreferrer" className="card-side-blade card-side-blade-gold">
+                <span>VIEW REPOSITORY</span>
+                <div className="blade-icon">→</div>
+              </a>
             </div>
           </div>
         </div>

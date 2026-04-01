@@ -189,6 +189,131 @@ h4,
   color: var(--primary-container);
 }
 
+/* Card Ghost Action Buttons */
+.card-ghost-btn {
+  display: none; /* Hide by default, revealed on mobile */
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-label);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .card-ghost-btn {
+    display: flex; /* Show on mobile */
+  }
+}
+
+
+.card-ghost-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(71, 228, 213, 0.08);
+  box-shadow: 0 0 15px rgba(71, 228, 213, 0.15);
+  transform: translateY(-1px);
+}
+
+.card-ghost-btn-gold:hover {
+  border-color: var(--secondary);
+  color: var(--secondary);
+  background: rgba(240, 191, 92, 0.08);
+  box-shadow: 0 0 15px rgba(240, 191, 92, 0.15);
+}
+
+/* Arcane Side-Access Blade (Option 1) */
+.card-side-blade {
+  position: absolute;
+  top: 0; right: 0; height: 100%; width: 64px;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 1px solid var(--outline-variant);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.card-side-blade span {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--on-surface);
+  opacity: 0.85; /* Increased for better legibility */
+  transition: all 0.4s ease;
+}
+
+.card-side-blade .blade-icon {
+  font-size: 1rem;
+  transition: transform 0.4s ease;
+  color: var(--on-surface);
+  opacity: 0.85; /* Increased for better legibility */
+}
+
+
+.card-side-blade:hover {
+  background: rgba(71, 228, 213, 0.05);
+  border-left-color: var(--primary);
+  width: 72px; /* Slight expansion */
+}
+
+.card-side-blade:hover span,
+.card-side-blade:hover .blade-icon {
+  color: var(--primary);
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(71, 228, 213, 0.4);
+}
+
+.card-side-blade:hover .blade-icon {
+  transform: translateY(4px);
+}
+
+/* Gold Variant for the side blade */
+.glass-card:hover .card-side-blade-gold {
+  border-left-color: var(--secondary);
+  background: rgba(240, 191, 92, 0.05);
+}
+
+.card-side-blade-gold span,
+.card-side-blade-gold .blade-icon {
+  color: var(--on-surface-variant);
+}
+
+.card-side-blade-gold:hover span,
+.card-side-blade-gold:hover .blade-icon {
+  color: var(--secondary);
+  text-shadow: 0 0 10px rgba(240, 191, 92, 0.4);
+}
+
+/* Hide side blade on medium/small screens where description fills the card */
+@media (max-width: 900px) {
+  .card-side-blade {
+    display: none;
+  }
+}
+
+
+
 /* Navigation Links */
 .nav-link {
   position: relative;
