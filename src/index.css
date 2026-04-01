@@ -191,7 +191,8 @@ h4,
 
 /* Card Ghost Action Buttons */
 .card-ghost-btn {
-  display: none; /* Hide by default, revealed on mobile */
+  display: none;
+  /* Hide by default, revealed on mobile */
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -214,7 +215,8 @@ h4,
 
 @media (max-width: 900px) {
   .card-ghost-btn {
-    display: flex; /* Show on mobile */
+    display: flex;
+    /* Show on mobile */
   }
 }
 
@@ -237,7 +239,10 @@ h4,
 /* Arcane Side-Access Blade (Option 1) */
 .card-side-blade {
   position: absolute;
-  top: 0; right: 0; height: 100%; width: 64px;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 64px;
   background: rgba(255, 255, 255, 0.02);
   border-left: 1px solid var(--outline-variant);
   display: flex;
@@ -259,7 +264,8 @@ h4,
   font-weight: 700;
   letter-spacing: 0.15em;
   color: var(--on-surface);
-  opacity: 0.85; /* Increased for better legibility */
+  opacity: 0.85;
+  /* Increased for better legibility */
   transition: all 0.4s ease;
 }
 
@@ -267,14 +273,16 @@ h4,
   font-size: 1rem;
   transition: transform 0.4s ease;
   color: var(--on-surface);
-  opacity: 0.85; /* Increased for better legibility */
+  opacity: 0.85;
+  /* Increased for better legibility */
 }
 
 
 .card-side-blade:hover {
   background: rgba(71, 228, 213, 0.05);
   border-left-color: var(--primary);
-  width: 72px; /* Slight expansion */
+  width: 72px;
+  /* Slight expansion */
 }
 
 .card-side-blade:hover span,
@@ -532,7 +540,10 @@ p {
 /* New Portal Rings */
 .portal-ring {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   border-radius: 50%;
   border: 1px solid transparent;
   pointer-events: none;
@@ -540,9 +551,30 @@ p {
   z-index: 1;
 }
 
-.ring-1 { top: -10px; left: -10px; right: -10px; bottom: -10px; border-color: rgba(71, 228, 213, 0.15); }
-.ring-2 { top: -35px; left: -35px; right: -35px; bottom: -35px; border-color: rgba(240, 191, 92, 0.1); border-style: dashed; }
-.ring-3 { top: -45px; left: -45px; right: -45px; bottom: -45px; border-color: rgba(71, 228, 213, 0.05); }
+.ring-1 {
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-color: rgba(71, 228, 213, 0.15);
+}
+
+.ring-2 {
+  top: -35px;
+  left: -35px;
+  right: -35px;
+  bottom: -35px;
+  border-color: rgba(240, 191, 92, 0.1);
+  border-style: dashed;
+}
+
+.ring-3 {
+  top: -45px;
+  left: -45px;
+  right: -45px;
+  bottom: -45px;
+  border-color: rgba(71, 228, 213, 0.05);
+}
 
 .hero-image-wrapper:hover .ring-1 {
   animation: erratic-portal 2.5s linear infinite;
@@ -584,17 +616,49 @@ p {
 }
 
 @keyframes portal-distort {
-  0%, 100% { transform: scale(1) rotate(0deg); border-radius: 50%; }
-  33% { transform: scale(1.02, 0.98) rotate(120deg); border-radius: 48% 52% 50% 50%; }
-  66% { transform: scale(0.98, 1.02) rotate(240deg); border-radius: 52% 48% 51% 49%; }
+
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    border-radius: 50%;
+  }
+
+  33% {
+    transform: scale(1.02, 0.98) rotate(120deg);
+    border-radius: 48% 52% 50% 50%;
+  }
+
+  66% {
+    transform: scale(0.98, 1.02) rotate(240deg);
+    border-radius: 52% 48% 51% 49%;
+  }
 }
 
 @keyframes erratic-portal {
-  0% { transform: rotate(0deg) scale(1); border-radius: 50%; }
-  25% { transform: rotate(110deg) scale(1.04, 0.96) translate(3px, -3px); border-radius: 46% 54% 50% 50%; }
-  50% { transform: rotate(220deg) scale(0.96, 1.04) translate(-4px, 4px); border-radius: 54% 46% 52% 48%; }
-  75% { transform: rotate(330deg) scale(1.02, 0.98) translate(2px, 2px); border-radius: 50% 50% 46% 54%; }
-  100% { transform: rotate(360deg) scale(1); border-radius: 50%; }
+  0% {
+    transform: rotate(0deg) scale(1);
+    border-radius: 50%;
+  }
+
+  25% {
+    transform: rotate(110deg) scale(1.04, 0.96) translate(3px, -3px);
+    border-radius: 46% 54% 50% 50%;
+  }
+
+  50% {
+    transform: rotate(220deg) scale(0.96, 1.04) translate(-4px, 4px);
+    border-radius: 54% 46% 52% 48%;
+  }
+
+  75% {
+    transform: rotate(330deg) scale(1.02, 0.98) translate(2px, 2px);
+    border-radius: 50% 50% 46% 54%;
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+    border-radius: 50%;
+  }
 }
 
 /* Container Hover Interactions */
@@ -663,4 +727,94 @@ p {
 
 .history-item-gold:hover .gem {
   opacity: 0 !important;
+}
+
+/* --- High-Tech "Conductive Flow" Contact Chip --- */
+@keyframes border-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.contact-chip-portal {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 1.25rem;
+  background: rgba(10, 15, 25, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 100px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(71, 228, 213, 0.1);
+  box-shadow: 0 4px 24px -12px rgba(0, 0, 0, 0.5);
+}
+
+.contact-chip-portal::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 100px;
+  padding: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--primary) 30%, 
+    var(--primary-container) 50%, 
+    var(--primary) 70%, 
+    transparent 100%);
+  background-size: 200% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: border-flow 8s linear infinite;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.contact-chip-portal:hover {
+  background: rgba(15, 25, 35, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px -12px rgba(71, 228, 213, 0.2);
+}
+
+.contact-chip-portal:hover::before {
+  opacity: 0.6;
+  animation-duration: 4s;
+}
+
+.contact-chip-portal .gem-feedback {
+  position: absolute;
+  inset: -2px; /* Pull slightly outside the border */
+  offset-path: border-box;
+  offset-anchor: center;
+  width: 6px;
+  height: 6px;
+  background-color: var(--primary);
+  transform: rotate(45deg);
+  pointer-events: none;
+  opacity: 0.4;
+  z-index: 5;
+  animation: gem-patrol 10s linear infinite;
+  box-shadow: 0 0 10px var(--primary);
+  transition: opacity 0.4s ease;
+}
+
+@keyframes gem-patrol {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
+}
+
+.contact-chip-portal:hover .gem-feedback {
+  opacity: 0.8;
+  animation-duration: 4s;
+}
+
+.contact-chip-portal .gem-feedback.active {
+  opacity: 1;
+  background-color: var(--primary);
+  box-shadow: 0 0 20px var(--primary);
+  animation-duration: 2s;
 }

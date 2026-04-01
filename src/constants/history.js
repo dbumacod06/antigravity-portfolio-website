@@ -29,5 +29,14 @@ export const PROFESSIONAL_HISTORY = [
       "Completed intensive cloud and AI residency on AWS.",
       "Optimized ML model maintenance via an automated multi-part validation pipeline on Amazon SageMaker, cutting manual effort by 2 hours daily."
     ]
+  },
+  {
+    company: "Change Healthcare",
+    role: "Computer Operator",
+    duration: "October 2020 - June 2022",
+    variant: "cyan",
+    highlightBullets: [
+      "Maintained high operational standards by executing and documenting daily procedural audits, ensuring 100% adherence to compliance protocols and zero-gap service continuity."
+    ]
   }
 ];

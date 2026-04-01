@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import heroPhoto from '../assets/photos/hero-photo.jpeg';
 import { ARSENAL_TAGS, PROJECT_TAGS } from '../constants/tags';
 import { PROFESSIONAL_HISTORY } from '../constants/history';
 
 const Portfolio = () => {
+  const [copied, setCopied] = useState(false);
+  const email = "hello@dhobyschon.com";
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <div className="surface-base">
       {/* Navigation */}
@@ -188,11 +197,42 @@ const Portfolio = () => {
             Available for specialized engineering projects and strategic technical partnerships.
           </p>
 
-          <a href="mailto:hello@dhobyschon.com" className="btn-primary" style={{ marginBottom: 'var(--space-16)' }}>Get in Touch</a>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '4rem' }}>
+            <div className="contact-chip-portal">
+              <span className="label-text" style={{ fontSize: '0.95rem', color: 'var(--on-surface-variant)', letterSpacing: '0.02em', textTransform: 'none' }}>
+                {email}
+              </span>
+              
+              <div style={{ width: '1px', height: '20px', background: 'var(--outline-variant)', opacity: 0.5 }}></div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginBottom: '2rem' }}>
-            <span className="label-text text-cyan">+63 123 456 7890</span>
-            <a href="mailto:hello@dhobyschon.com" className="label-text text-gold">Email</a>
+              <button 
+                onClick={handleCopyEmail}
+                className="btn-secondary"
+                style={{ 
+                  padding: '0.35rem', 
+                  borderRadius: '100px', 
+                  minWidth: copied ? '80px' : '40px', 
+                  height: '40px', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center', 
+                  border: '1px solid transparent', 
+                  position: 'relative',
+                  transition: 'all 0.3s ease'
+                }}
+                title="Copy Email"
+              >
+                {copied ? (
+                  <span style={{ fontSize: '0.75rem', fontWeight: 600 }}>Copied!</span>
+                ) : (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.8 }}>
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                )}
+                <div className={`gem-feedback gem ${copied ? 'active' : ''}`} style={{ width: '8px', height: '8px' }}></div>
+              </button>
+            </div>
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', fontSize: '0.875rem' }}>
