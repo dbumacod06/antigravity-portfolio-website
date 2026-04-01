@@ -5,7 +5,7 @@ import { PROFESSIONAL_HISTORY } from '../constants/history';
 
 const Portfolio = () => {
   const [copied, setCopied] = useState(false);
-  const email = "hello@dhobyschon.com";
+  const email = "dsfbumacod06@gmail.com";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);
@@ -150,11 +150,11 @@ const Portfolio = () => {
                   ))}
                 </div>
               </div>
-              <a href="https://github.com/dhobyschon/simple-kafka-system" target="_blank" rel="noopener noreferrer" className="card-ghost-btn">
+              <a href="https://github.com/dbumacod06/simple-kafka-system" target="_blank" rel="noopener noreferrer" className="card-ghost-btn">
                 <span>View Code</span>
                 <span className="gem" style={{ margin: 0, width: '4px', height: '4px' }}></span>
               </a>
-              <a href="https://github.com/dhobyschon/simple-kafka-system" target="_blank" rel="noopener noreferrer" className="card-side-blade">
+              <a href="https://github.com/dbumacod06/simple-kafka-system" target="_blank" rel="noopener noreferrer" className="card-side-blade">
                 <span>VIEW REPOSITORY</span>
                 <div className="blade-icon">→</div>
               </a>
@@ -174,11 +174,11 @@ const Portfolio = () => {
                   ))}
                 </div>
               </div>
-              <a href="https://github.com/dhobyschon/dhoby-ai-assistant" target="_blank" rel="noopener noreferrer" className="card-ghost-btn card-ghost-btn-gold">
+              <a href="https://github.com/dbumacod06/pydantic-ai-assistant" target="_blank" rel="noopener noreferrer" className="card-ghost-btn card-ghost-btn-gold">
                 <span>View Code</span>
                 <span className="gem gem-gold" style={{ margin: 0, width: '4px', height: '4px' }}></span>
               </a>
-              <a href="https://github.com/dhobyschon/dhoby-ai-assistant" target="_blank" rel="noopener noreferrer" className="card-side-blade card-side-blade-gold">
+              <a href="https://github.com/dbumacod06/pydantic-ai-assistant" target="_blank" rel="noopener noreferrer" className="card-side-blade card-side-blade-gold">
                 <span>VIEW REPOSITORY</span>
                 <div className="blade-icon">→</div>
               </a>
@@ -202,21 +202,21 @@ const Portfolio = () => {
               <span className="label-text" style={{ fontSize: '0.95rem', color: 'var(--on-surface-variant)', letterSpacing: '0.02em', textTransform: 'none' }}>
                 {email}
               </span>
-              
+
               <div style={{ width: '1px', height: '20px', background: 'var(--outline-variant)', opacity: 0.5 }}></div>
 
-              <button 
+              <button
                 onClick={handleCopyEmail}
                 className="btn-secondary"
-                style={{ 
-                  padding: '0.35rem', 
-                  borderRadius: '100px', 
-                  minWidth: copied ? '80px' : '40px', 
-                  height: '40px', 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center', 
-                  border: '1px solid transparent', 
+                style={{
+                  padding: '0.35rem',
+                  borderRadius: '100px',
+                  minWidth: copied ? '80px' : '40px',
+                  height: '40px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  border: '1px solid transparent',
                   position: 'relative',
                   transition: 'all 0.3s ease'
                 }}
