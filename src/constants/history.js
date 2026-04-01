@@ -2,7 +2,7 @@ export const PROFESSIONAL_HISTORY = [
   {
     company: "Arch Global Services",
     role: "Software Engineer",
-    duration: "April 2025 - Present",
+    duration: "April 2025 - March 2026",
     variant: "gold",
     highlightBullets: [
       "Architected and migrated API telemetry to Azure Application Insights, replacing legacy database logging to reduce API latency.",
