@@ -5,12 +5,26 @@ import { PROFESSIONAL_HISTORY } from '../constants/history';
 
 const Portfolio = () => {
   const [copied, setCopied] = useState(false);
-  const email = "dsfbumacod06@gmail.com";
+  const [revealedEmail, setRevealedEmail] = useState("");
+
+  // Base64-encoded email strings to obfuscate from scrapers
+  const encodedEmail = "ZHNmYnVtYWNvZDA2QGdtYWlsLmNvbQ==";
+
+  React.useEffect(() => {
+    // Decoding only in browser memory on component mount
+    try {
+      setRevealedEmail(atob(encodedEmail));
+    } catch (e) {
+      console.error("Link Decryption Error");
+    }
+  }, []);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText(email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    if (revealedEmail) {
+      navigator.clipboard.writeText(revealedEmail);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
   };
 
   return (
@@ -200,7 +214,7 @@ const Portfolio = () => {
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '4rem' }}>
             <div className="contact-chip-portal">
               <span className="label-text" style={{ fontSize: '0.95rem', color: 'var(--on-surface-variant)', letterSpacing: '0.02em', textTransform: 'none' }}>
-                {email}
+                {revealedEmail || "********@****.***"}
               </span>
 
               <div style={{ width: '1px', height: '20px', background: 'var(--outline-variant)', opacity: 0.5 }}></div>
