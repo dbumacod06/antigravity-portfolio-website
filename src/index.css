@@ -325,6 +325,7 @@ h1.display-text {
     display: none;
   }
 }
+
 /* Navigation Container */
 .nav-container {
   display: flex;
@@ -622,20 +623,39 @@ p {
   border-color: rgba(71, 228, 213, 0.3);
   border-width: 1px;
 }
+
 @media (max-width: 600px) {
   .hero-image-wrapper {
-     max-width: 280px;
-     margin: 0 auto;
+    max-width: 280px;
+    margin: 0 auto;
   }
-  
-  .ring-1 { top: -8px; left: -8px; right: -8px; bottom: -8px; }
-  .ring-2 { top: -20px; left: -20px; right: -20px; bottom: -20px; }
-  .ring-3 { top: -30px; left: -30px; right: -30px; bottom: -30px; }
-  
+
+  .ring-1 {
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+  }
+
+  .ring-2 {
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+  }
+
+  .ring-3 {
+    top: -30px;
+    left: -30px;
+    right: -30px;
+    bottom: -30px;
+  }
+
   .header-paragraph {
     font-size: 1.1rem !important;
   }
 }
+
 .hero-image {
   width: 100%;
   height: 100%;
@@ -771,9 +791,17 @@ p {
 
 /* --- High-Tech "Conductive Flow" Contact Chip --- */
 @keyframes border-flow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .contact-chip-portal {
@@ -797,12 +825,12 @@ p {
   inset: -1px;
   border-radius: 100px;
   padding: 1px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    var(--primary) 30%, 
-    var(--primary-container) 50%, 
-    var(--primary) 70%, 
-    transparent 100%);
+  background: linear-gradient(90deg,
+      transparent 0%,
+      var(--primary) 30%,
+      var(--primary-container) 50%,
+      var(--primary) 70%,
+      transparent 100%);
   background-size: 200% 100%;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -827,7 +855,8 @@ p {
 
 .contact-chip-portal .gem-feedback {
   position: absolute;
-  inset: -2px; /* Pull slightly outside the border */
+  inset: -2px;
+  /* Pull slightly outside the border */
   offset-path: border-box;
   offset-anchor: center;
   width: 6px;
@@ -843,8 +872,13 @@ p {
 }
 
 @keyframes gem-patrol {
-  from { offset-distance: 0%; }
-  to { offset-distance: 100%; }
+  from {
+    offset-distance: 0%;
+  }
+
+  to {
+    offset-distance: 100%;
+  }
 }
 
 .contact-chip-portal:hover .gem-feedback {
@@ -857,4 +891,123 @@ p {
   background-color: var(--primary);
   box-shadow: 0 0 20px var(--primary);
   animation-duration: 2s;
+}
+
+/* --- Hextech Text Rotator & Closing Door Animation --- */
+.hextech-rotator {
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+  overflow: hidden;
+  padding: 0 0.3em;
+  /* Scaled proportionally with font-size */
+  margin-right: 0.25em;
+  /* Scaled proportionally with font-size */
+  border-bottom: 2px solid rgba(71, 228, 213, 0.15);
+}
+
+.rotator-placeholder {
+  visibility: hidden;
+  display: inline-block;
+}
+
+.hextech-word {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  display: inline-block;
+  transition: color 0.4s ease;
+}
+
+.hextech-door {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: #081327;
+  /* Matches --background */
+  z-index: 10;
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  pointer-events: none;
+}
+
+.hextech-door.top-door {
+  top: 0;
+  transform: translateY(calc(-100% - 3px));
+  border-bottom: 2px solid var(--primary);
+  border-left: 2px solid var(--primary);
+  border-right: 2px solid var(--primary);
+}
+
+.hextech-door.bottom-door {
+  bottom: 0;
+  transform: translateY(calc(100% + 3px));
+  border-top: 2px solid var(--primary);
+  border-left: 2px solid var(--primary);
+  border-right: 2px solid var(--primary);
+}
+
+/* Closed state */
+.hextech-door.top-door.closed {
+  transform: translateY(0);
+}
+
+.hextech-door.bottom-door.closed {
+  transform: translateY(0);
+}
+
+/* Luminous center gold filament when the doors lock */
+.hextech-door::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background-color: var(--secondary);
+  box-shadow: 0 0 10px var(--secondary), 0 0 20px var(--secondary);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.hextech-door.top-door::after {
+  bottom: 0;
+}
+
+.hextech-door.bottom-door::after {
+  top: 0;
+}
+
+/* Make gold filament visible when doors are closed */
+.hextech-door.closed::after {
+  opacity: 1;
+}
+
+/* Responsive adjustments for mobile and tablet viewports */
+@media (max-width: 900px) {
+  .hextech-rotator {
+    padding: 0 0.2em; /* Tighter padding for narrow screens */
+    margin-right: 0.2em;
+    border-bottom-width: 1px;
+  }
+  .hextech-door.top-door {
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+  }
+  .hextech-door.bottom-door {
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+  }
+  .hextech-door::after {
+    height: 1px;
+  }
+}
+
+.hero-br {
+  display: block;
 }

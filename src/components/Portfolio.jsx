@@ -10,6 +10,12 @@ const Portfolio = () => {
   // Base64-encoded email strings to obfuscate from scrapers
   const encodedEmail = "ZHNmYnVtYWNvZDA2QGdtYWlsLmNvbQ==";
 
+  // Hextech Text Rotator States
+  const words = ["Software", "Data", "AI"];
+  const wordThemes = ["text-cyan", "text-gold", "text-cyan"];
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isClosing, setIsClosing] = useState(false);
+
   React.useEffect(() => {
     // Decoding only in browser memory on component mount
     try {
@@ -17,6 +23,17 @@ const Portfolio = () => {
     } catch (e) {
       console.error("Link Decryption Error");
     }
+  }, []);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setIsClosing(true);
+      setTimeout(() => {
+        setWordIndex((prev) => (prev + 1) % words.length);
+        setIsClosing(false);
+      }, 400); // 400ms matches the door-close CSS transition duration
+    }, 3500);
+    return () => clearInterval(interval);
   }, []);
 
   const handleCopyEmail = () => {
@@ -44,9 +61,16 @@ const Portfolio = () => {
         <div className="magic-glow"></div>
         <div style={{ position: 'relative', zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap-reverse', gap: '4rem' }}>
           <div style={{ flex: '1 1 500px' }}>
-            <div className="label-text text-gold" style={{ marginBottom: '1rem' }}>Dhoby Schon Fitz Bumacod</div>
+            <div className="label-text text-gold" style={{ marginBottom: '2rem' }}>Dhoby Schon Fitz Bumacod</div>
             <h1 className="display-text" style={{ marginBottom: '2rem', maxWidth: '800px' }}>
-              Software, Data, <span className="text-cyan">& AI Engineering</span>.
+              <span className="hextech-rotator">
+                <span className="rotator-placeholder">Software</span>
+                <span className={`hextech-word ${wordThemes[wordIndex]}`}>{words[wordIndex]}</span>
+                <span className={`hextech-door top-door ${isClosing ? 'closed' : ''}`}></span>
+                <span className={`hextech-door bottom-door ${isClosing ? 'closed' : ''}`}></span>
+              </span>
+              <br className="hero-br" />
+              Engineering.
             </h1>
             <p className="header-paragraph" style={{ fontSize: '1.25rem', maxWidth: '600px', marginBottom: '3rem' }}>
               Leveraging high-precision engineering to architect resilient solutions that transform complex challenges into scalable business impact. Based in <span className="text-gold" style={{ borderBottom: '1px solid rgba(240, 191, 92, 0.2)', paddingBottom: '2px' }}>Metro Manila, Philippines</span>.
@@ -76,7 +100,7 @@ const Portfolio = () => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
             {PROFESSIONAL_HISTORY.map((job, index) => (
               <div key={index} className={job.variant === 'gold' ? 'history-item-gold' : 'history-item'} style={{ position: 'relative', paddingLeft: '2.5rem', borderLeft: `1px solid ${job.variant === 'gold' ? 'rgba(240, 191, 92, 0.4)' : 'var(--outline-variant)'}` }}>
-                <span className={`gem ${job.variant === 'gold' ? 'gem-gold' : ''}`} style={{ position: 'absolute', left: '-5px', top: '8px', margin: 0 }}></span>
+                <span className={`gem ${job.variant === 'gold' ? 'gem-gold' : ''}`} style={{ position: 'absolute', left: '-5px', top: '0px', margin: 0 }}></span>
                 <h3 className={`label-text text-${job.variant}`} style={{ marginBottom: '0.25rem', margin: 0 }}>{job.company}</h3>
                 <div style={{ fontSize: '1.25rem', fontFamily: 'var(--font-body)', fontWeight: 600 }}>{job.role} <span style={{ fontSize: '0.875rem', opacity: 0.6, fontWeight: 400, marginLeft: '1rem' }}>{job.duration}</span></div>
                 <ul style={{ marginTop: '1rem', paddingLeft: '1.25rem', color: 'var(--on-surface-variant)', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>

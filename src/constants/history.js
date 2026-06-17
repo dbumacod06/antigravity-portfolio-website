@@ -1,9 +1,19 @@
 export const PROFESSIONAL_HISTORY = [
   {
+    company: "IBM",
+    role: "Senior Python Developer",
+    duration: "March 2026 - Present",
+    variant: "gold",
+    highlightBullets: [
+      "Accelerated delivery and processing efficiency by engineering custom-view, web-based dashboards utilizing AI and spec-driven development methodologies.",
+      "Enhanced team engineering velocity by standardizing and creating reusable AI agent skills, enabling agentic page creation, dashboard updates, and validated Git workflow integration."
+    ]
+  },
+  {
     company: "Arch Global Services",
     role: "Software Engineer",
     duration: "April 2025 - March 2026",
-    variant: "gold",
+    variant: "cyan",
     highlightBullets: [
       "Architected and migrated API telemetry to Azure Application Insights, replacing legacy database logging to reduce API latency.",
       "Streamlined multi-project workflows using Event-driven Snowflake architecture."
