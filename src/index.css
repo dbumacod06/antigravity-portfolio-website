@@ -390,6 +390,7 @@ h1.display-text {
 
 .gem-gold {
   background-color: var(--secondary);
+  animation-name: pulse-gold;
 }
 
 @keyframes pulse {
@@ -401,6 +402,18 @@ h1.display-text {
   100% {
     opacity: 1;
     box-shadow: 0 0 15px var(--primary);
+  }
+}
+
+@keyframes pulse-gold {
+  0% {
+    opacity: 0.4;
+    box-shadow: 0 0 5px var(--secondary);
+  }
+
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 15px var(--secondary);
   }
 }
 
