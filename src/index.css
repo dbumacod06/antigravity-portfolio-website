@@ -556,7 +556,8 @@ p {
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hero-image-wrapper:hover::before {
+.hero-image-wrapper:hover::before,
+.hero-image-wrapper.portal-active::before {
   animation: spin 1.5s linear infinite;
   border-style: solid;
   border-width: 2px;
@@ -564,7 +565,8 @@ p {
   filter: brightness(1.5) contrast(1.2);
 }
 
-.hero-image-wrapper:hover::after {
+.hero-image-wrapper:hover::after,
+.hero-image-wrapper.portal-active::after {
   animation: spin 2.5s linear infinite reverse;
   border-width: 4px;
   border-color: rgba(240, 191, 92, 0.5);
@@ -572,10 +574,105 @@ p {
   filter: brightness(1.2);
 }
 
+.hero-image-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Default flat, upright state (matches the 5760deg rotation around the base axis vector to prevent visual jump) */
+  transform: rotate3d(1, 2.2, 0.8, 5760deg);
+  background: var(--bg-primary, #081327);
+  box-sizing: border-box;
+  border: 4px double rgba(240, 191, 92, 0.65); /* Piltover Gold Double Rim */
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.8), /* Soft dark cast shadow for 3D elevation */
+    inset 0 0 25px rgba(240, 191, 92, 0.35), /* Internal gold bezel/rim highlight */
+    0 0 30px rgba(71, 228, 213, 0.25); /* Subtle hextech glow surrounding the coin */
+  backface-visibility: visible;
+}
+
+/* Luminous overlay glare/sheen effect on the coin */
+.hero-image-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 3;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.15) 45%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0.15) 55%,
+      rgba(255, 255, 255, 0) 70%);
+  background-size: 200% 200%;
+  background-position: -50% -50%;
+  mix-blend-mode: overlay;
+  transition: background-position 0.6s ease;
+}
+
+.hero-image-wrapper:hover .hero-image-container::after {
+  background-position: 150% 150%;
+  transition: background-position 1s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+.hero-image-container.intro-spinning::after {
+  animation: glare-sweep-intro 5.5s cubic-bezier(0.25, 0.8, 0.25, 1) 1;
+}
+
+@keyframes glare-sweep-intro {
+  0% {
+    background-position: -150% -150%;
+  }
+
+  100% {
+    background-position: 150% 150%;
+  }
+}
+
+.hero-image-container.intro-spinning {
+  animation: intro-coin-spin 5.5s cubic-bezier(0.25, 0.8, 0.25, 1) 1;
+}
+
+@keyframes intro-coin-spin {
+  0% {
+    /* Starts flat-facing at 0 degrees rotation along the main diagonal axis */
+    transform: rotate3d(1, 2.2, 0.8, 0deg);
+  }
+  20% {
+    /* Spins extremely fast (completing 6 full rotations) with slight axis wobble */
+    transform: rotate3d(1.2, 1.8, -0.6, 2160deg);
+  }
+  40% {
+    /* Fast rotation continuing (completing another 4 rotations) */
+    transform: rotate3d(-0.8, 2.5, 1.2, 3600deg);
+  }
+  60% {
+    /* Gradual decelerating phase (completing 3 rotations) */
+    transform: rotate3d(1.5, 1.5, -0.5, 4680deg);
+  }
+  80% {
+    /* Decelerating slower but keeping visible motion (completing 2 rotations) */
+    transform: rotate3d(0.9, 2.3, 0.9, 5400deg);
+  }
+  100% {
+    /* Settles flat at 5760deg (exactly 16 full rotations) right at the 5.5s mark */
+    transform: rotate3d(1, 2.2, 0.8, 5760deg);
+  }
+}
+
+.hero-image-wrapper:hover .hero-image-container {
+  /* Scale and interactive 3D tilt offset on hover relative to the flat resting position */
+  transform: scale(1.05) rotate3d(1, 2.2, 0.8, 5760deg) rotateX(10deg) rotateY(12deg);
+}
+
 .hero-image-wrapper:hover .hero-image {
-  transform: scale(1.05);
   filter: saturate(1.2) brightness(1.1);
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* New Portal Rings */
@@ -617,21 +714,24 @@ p {
   border-color: rgba(71, 228, 213, 0.05);
 }
 
-.hero-image-wrapper:hover .ring-1 {
+.hero-image-wrapper:hover .ring-1,
+.hero-image-wrapper.portal-active .ring-1 {
   animation: erratic-portal 2.5s linear infinite;
   border-color: rgba(71, 228, 213, 0.7);
   border-width: 2px;
   box-shadow: 0 0 20px rgba(71, 228, 213, 0.3);
 }
 
-.hero-image-wrapper:hover .ring-2 {
+.hero-image-wrapper:hover .ring-2,
+.hero-image-wrapper.portal-active .ring-2 {
   animation: erratic-portal 4s linear infinite reverse;
   border-color: rgba(240, 191, 92, 0.4);
   border-width: 3px;
   box-shadow: 0 0 40px rgba(240, 191, 92, 0.2);
 }
 
-.hero-image-wrapper:hover .ring-3 {
+.hero-image-wrapper:hover .ring-3,
+.hero-image-wrapper.portal-active .ring-3 {
   animation: erratic-portal 6s ease-in-out infinite;
   border-color: rgba(71, 228, 213, 0.3);
   border-width: 1px;
@@ -680,6 +780,7 @@ p {
   /* Filter removed explicitly */
   position: relative;
   z-index: 2;
+  transition: filter 0.5s ease;
 }
 
 @keyframes spin {
@@ -1002,20 +1103,24 @@ p {
 /* Responsive adjustments for mobile and tablet viewports */
 @media (max-width: 900px) {
   .hextech-rotator {
-    padding: 0 0.2em; /* Tighter padding for narrow screens */
+    padding: 0 0.2em;
+    /* Tighter padding for narrow screens */
     margin-right: 0.2em;
     border-bottom-width: 1px;
   }
+
   .hextech-door.top-door {
     border-bottom-width: 1px;
     border-left-width: 1px;
     border-right-width: 1px;
   }
+
   .hextech-door.bottom-door {
     border-top-width: 1px;
     border-left-width: 1px;
     border-right-width: 1px;
   }
+
   .hextech-door::after {
     height: 1px;
   }

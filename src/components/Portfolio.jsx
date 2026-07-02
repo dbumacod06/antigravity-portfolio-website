@@ -16,6 +16,9 @@ const Portfolio = () => {
   const [wordIndex, setWordIndex] = useState(0);
   const [isClosing, setIsClosing] = useState(false);
 
+  // Obfuscation states and rotator states
+  const [portalActive, setPortalActive] = useState(true);
+
   React.useEffect(() => {
     // Decoding only in browser memory on component mount
     try {
@@ -35,6 +38,8 @@ const Portfolio = () => {
     }, 2200);
     return () => clearInterval(interval);
   }, []);
+
+
 
   const handleCopyEmail = () => {
     if (revealedEmail) {
@@ -81,11 +86,20 @@ const Portfolio = () => {
             </div>
           </div>
           <div style={{ flex: '1 1 350px', display: 'flex', justifyContent: 'center' }}>
-            <div className="hero-image-wrapper">
+            <div className={`hero-image-wrapper ${portalActive ? 'portal-active' : ''}`}>
               <div className="portal-ring ring-1"></div>
               <div className="portal-ring ring-2"></div>
               <div className="portal-ring ring-3"></div>
-              <img src={heroPhoto} alt="Dhoby Schon Fitz Bumacod" className="hero-image" />
+              <div 
+                className={`hero-image-container ${portalActive ? 'intro-spinning' : ''}`}
+                onAnimationEnd={(e) => {
+                  if (e.animationName === 'intro-coin-spin') {
+                    setPortalActive(false);
+                  }
+                }}
+              >
+                <img src={heroPhoto} alt="Dhoby Schon Fitz Bumacod" className="hero-image" />
+              </div>
             </div>
           </div>
         </div>
