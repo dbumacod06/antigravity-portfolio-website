@@ -32,7 +32,7 @@ const Portfolio = () => {
         setWordIndex((prev) => (prev + 1) % words.length);
         setIsClosing(false);
       }, 400); // 400ms matches the door-close CSS transition duration
-    }, 3500);
+    }, 2200);
     return () => clearInterval(interval);
   }, []);
 
